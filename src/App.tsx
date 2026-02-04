@@ -24,6 +24,22 @@ const services = [
   }
 ];
 
+const bookingServices = [
+  "H.V.A.C Install",
+  "H.V.A.C Service",
+  "Air Duct Cleaning",
+  "Carpet Cleaning",
+  "Cleaning Membership"
+];
+
+const bookingLinks: Record<string, string> = {
+  "H.V.A.C Install": "https://app.cal.com/developers-clear-site-ktxqn0/30min",
+  "H.V.A.C Service": "https://app.cal.com/developers-clear-site-ktxqn0/30min",
+  "Air Duct Cleaning": "https://app.cal.com/developers-clear-site-ktxqn0/30min",
+  "Carpet Cleaning": "https://app.cal.com/developers-clear-site-ktxqn0/30min",
+  "Cleaning Membership": "https://app.cal.com/developers-clear-site-ktxqn0/30min"
+};
+
 const pricing = [
   {
     label: "Carpet Cleaning",
@@ -63,6 +79,25 @@ const pricing = [
 ];
 
 export default function App() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState(bookingServices[0]);
+
+  const handleOpenBooking = () => {
+    setIsBookingOpen(true);
+  };
+
+  const handleCloseBooking = () => {
+    setIsBookingOpen(false);
+  };
+
+  const handleConfirmBooking = () => {
+    const bookingUrl =
+      bookingLinks[selectedService] ??
+      "https://app.cal.com/developers-clear-site-ktxqn0/30min";
+    window.open(bookingUrl, "_blank", "noopener,noreferrer");
+    setIsBookingOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-20 border-b border-slate-200 bg-white">
@@ -84,16 +119,20 @@ export default function App() {
               Contact
             </a>
           </nav>
-          <Button asChild className="bg-rose-500 text-white shadow-glow hover:bg-rose-600">
-            <a href="https://app.cal.com/developers-clear-site-ktxqn0/30min">Book Now</a>
+          <Button
+            type="button"
+            className="bg-rose-500 text-white shadow-glow hover:bg-rose-600"
+            onClick={handleOpenBooking}
+          >
+            Book Now
           </Button>
         </div>
       </header>
 
       <main>
-        <section className="py-16">
-          <div className="mx-auto grid w-[min(1200px,92vw)] items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="mx-auto flex h-[400px] w-[400px] items-center justify-center rounded-3xl bg-slate-50 p-6 shadow-sm sm:h-[460px] sm:w-[460px] md:h-[520px] md:w-[520px]">
+        <section className="py-24">
+          <div className="mx-auto grid min-h-[680px] w-[min(1200px,92vw)] items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="mx-auto flex h-[440px] w-[440px] items-center justify-center rounded-3xl bg-slate-50 p-6 shadow-sm sm:h-[500px] sm:w-[500px] md:h-[560px] md:w-[560px]">
               <img
                 src="/IMG6666.png"
                 alt="Every Hour Heating and Air banner"
@@ -101,7 +140,7 @@ export default function App() {
               />
             </div>
             <div>
-              <h1 className="text-3xl font-bold md:text-4xl">
+              <h1 className="text-4xl font-bold md:text-5xl">
                 Reliable HVAC, duct, and carpet cleaning—on your schedule.
               </h1>
               <p className="mt-4 text-slate-600">
@@ -110,11 +149,15 @@ export default function App() {
                 and quality work you can trust.
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
-                <Button asChild className="bg-rose-500 text-white hover:bg-rose-600">
-                  <a href="https://app.cal.com/developers-clear-site-ktxqn0/30min">Book Now</a>
+                <Button
+                  type="button"
+                  className="bg-rose-500 text-white hover:bg-rose-600"
+                  onClick={handleOpenBooking}
+                >
+                  Book Now
                 </Button>
                 <Button asChild className="bg-brand-600 text-white hover:bg-brand-700">
-                  <a href="tel:801-687-8730">Call 801-687-8730</a>
+                  <a href="tel:8016878730">Call 801-687-8730</a>
                 </Button>
               </div>
               <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold text-slate-500">
@@ -236,7 +279,7 @@ export default function App() {
                 We’re ready to help. Reach out today.
               </p>
               <p className="mt-6 text-sm">
-                Phone: <a href="tel:801-687-8730">801-687-8730</a>
+                Phone: <a href="tel:8016878730">801-687-8730</a>
                 <br />
                 Email:{" "}
                 <a href="mailto:everyhourheatingandair@gmail.com">
@@ -251,6 +294,41 @@ export default function App() {
       <footer className="py-10 text-center text-sm text-slate-500">
         © 2026 Every Hour Heating and Air. All rights reserved.
       </footer>
+
+      {isBookingOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/70 p-4">
+          <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-soft">
+            <h3 className="text-xl font-semibold text-slate-900">
+              What service would you like to schedule?
+            </h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Select a service to continue to booking.
+            </p>
+            <label className="mt-5 block text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+              Service
+              <select
+                value={selectedService}
+                onChange={(event) => setSelectedService(event.target.value)}
+                className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-brand-500 focus:outline-none"
+              >
+                {bookingServices.map((service) => (
+                  <option key={service} value={service}>
+                    {service}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-end">
+              <Button type="button" variant="outline" onClick={handleCloseBooking}>
+                Cancel
+              </Button>
+              <Button type="button" onClick={handleConfirmBooking}>
+                Continue to Booking
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
