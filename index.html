@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Every Hour Heating and Air</title>
+		<meta
+			name="description"
+			content="Every Hour Heating and Air offers HVAC installs, service, duct cleaning, and carpet cleaning."
+		/>
+		<style>
+			:root {
+				--bg: #f7f8fb;
+				--text: #1b1f2a;
+				--muted: #5b6476;
+				--primary: #0a4aa7;
+				--accent: #e63946;
+				--card: #ffffff;
+				--border: #e3e8f0;
+				--shadow: 0 10px 30px rgba(14, 23, 43, 0.08);
+			}
+
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+				color: var(--text);
+				background: var(--bg);
+				line-height: 1.6;
+			}
+
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+
+			img {
+				max-width: 100%;
+				display: block;
+				border-radius: 14px;
+			}
+
+			.container {
+				width: min(1200px, 92vw);
+				margin: 0 auto;
+			}
+
+			header {
+				background: #ffffff;
+				border-bottom: 1px solid var(--border);
+				position: sticky;
+				top: 0;
+				z-index: 10;
+			}
+
+			.nav {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 18px 0;
+			}
+
+			.brand {
+				display: flex;
+				flex-direction: column;
+				gap: 4px;
+				font-weight: 700;
+			}
+
+			.brand small {
+				color: var(--muted);
+				font-weight: 500;
+			}
+
+			.nav-links {
+				display: flex;
+				gap: 20px;
+				align-items: center;
+				font-weight: 600;
+				color: var(--muted);
+			}
+
+			.btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 12px 22px;
+				border-radius: 999px;
+				border: none;
+				font-weight: 700;
+				cursor: pointer;
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+			}
+
+			.btn-primary {
+				background: var(--primary);
+				color: #fff;
+				box-shadow: 0 12px 24px rgba(10, 74, 167, 0.25);
+			}
+
+			.btn-accent {
+				background: var(--accent);
+				color: #fff;
+				box-shadow: 0 12px 24px rgba(230, 57, 70, 0.25);
+			}
+
+			.btn:hover {
+				transform: translateY(-1px);
+			}
+
+			.hero {
+				padding: 70px 0 40px;
+			}
+
+			.hero-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 40px;
+				align-items: center;
+			}
+
+			.hero h1 {
+				font-size: clamp(2.1rem, 3vw, 3.2rem);
+				margin-bottom: 16px;
+			}
+
+			.hero p {
+				color: var(--muted);
+				margin-bottom: 24px;
+			}
+
+			.hero-actions {
+				display: flex;
+				gap: 16px;
+				flex-wrap: wrap;
+			}
+
+			.hero-centered {
+				text-align: center;
+			}
+
+			.hero-centered .hero-actions {
+				justify-content: center;
+			}
+
+			.hero-centered .badges {
+				justify-content: center;
+			}
+
+			.hero-banner {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				background: #ffffff;
+				border-radius: 50%;
+				padding: 18px;
+			}
+
+			.hero-frame {
+				width: clamp(300px, 38vw, 460px);
+				height: clamp(300px, 38vw, 460px);
+				border-radius: 50%;
+				background-image: url("assets/IMG5555.jpg");
+				background-size: cover;
+				background-position: center;
+				padding: 14px;
+				box-shadow: var(--shadow);
+				margin: 0 auto;
+				display: grid;
+				place-items: center;
+			}
+
+			.badges {
+				display: flex;
+				gap: 16px;
+				flex-wrap: wrap;
+				margin-top: 20px;
+				color: var(--muted);
+				font-weight: 600;
+			}
+
+			section {
+				padding: 60px 0;
+			}
+
+			.section-title {
+				display: grid;
+				gap: 12px;
+				margin-bottom: 28px;
+			}
+
+			.section-title.center {
+				text-align: center;
+			}
+
+			.section-title h2 {
+				font-size: clamp(1.7rem, 2.4vw, 2.4rem);
+			}
+
+			.section-title p {
+				color: var(--muted);
+			}
+
+			.grid {
+				display: grid;
+				gap: 24px;
+			}
+
+			.grid-2 {
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			}
+
+			.grid-3 {
+				grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+			}
+
+			.card {
+				background: var(--card);
+				border: 1px solid var(--border);
+				border-radius: 18px;
+				padding: 22px;
+				box-shadow: var(--shadow);
+				display: grid;
+				gap: 16px;
+			}
+
+			.card img {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
+			}
+
+			.card h3 {
+				font-size: 1.1rem;
+				text-align: center;
+			}
+
+			.card p {
+				color: var(--muted);
+				text-align: center;
+			}
+
+			.cta-banner {
+				background: linear-gradient(135deg, #0a4aa7, #133b6f);
+				color: #fff;
+				border-radius: 24px;
+				padding: 32px;
+				display: grid;
+				gap: 24px;
+				align-items: center;
+			}
+
+			.cta-banner img {
+				border-radius: 18px;
+			}
+
+			.cta-banner .btn {
+				margin-top: 18px;
+			}
+
+			.pricing {
+				background: #fff;
+				border-radius: 20px;
+				padding: 24px;
+				box-shadow: var(--shadow);
+				border: 1px solid var(--border);
+				display: grid;
+				gap: 16px;
+				position: relative;
+			}
+
+			.pricing .price {
+				font-size: 1.9rem;
+				font-weight: 800;
+				color: var(--primary);
+			}
+
+			.pricing .label {
+				font-size: 0.85rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				color: var(--muted);
+			}
+
+			.pricing .badge {
+				display: inline-flex;
+				align-items: center;
+				width: fit-content;
+				background: rgba(10, 74, 167, 0.1);
+				color: var(--primary);
+				padding: 6px 10px;
+				border-radius: 999px;
+				font-size: 0.75rem;
+				font-weight: 700;
+				margin-bottom: 4px;
+			}
+
+			.pricing ul {
+				list-style: none;
+				display: grid;
+				gap: 8px;
+				color: var(--muted);
+			}
+
+			.pricing-highlight {
+				border: 2px solid var(--primary);
+				background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+			}
+
+			.pricing-grid {
+				display: grid;
+				gap: 24px;
+				grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			}
+
+			.book-now {
+				background: #fff;
+				border-radius: 24px;
+				padding: 32px;
+				border: 1px solid var(--border);
+				box-shadow: var(--shadow);
+			}
+
+			.book-now ul {
+				list-style: none;
+				display: grid;
+				gap: 10px;
+				color: var(--muted);
+				margin-top: 12px;
+			}
+
+			.contact {
+				background: #0e1629;
+				color: #fff;
+				border-radius: 24px;
+				padding: 36px;
+			}
+
+			.contact a {
+				color: #fff;
+				font-weight: 700;
+			}
+
+			footer {
+				padding: 30px 0 50px;
+				text-align: center;
+				color: var(--muted);
+			}
+
+			@media (max-width: 768px) {
+				.nav-links {
+					display: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container nav">
+				<div class="brand">
+					Every Hour Heating and Air
+					<small>Keeping your home comfortable</small>
+				</div>
+				<nav class="nav-links">
+					<a href="#services">Services</a>
+					<a href="#pricing">Pricing</a>
+					<a href="#about">About Us</a>
+					<a href="#contact">Contact</a>
+				</nav>
+				<button class="btn btn-primary" data-cal-link="developers-clear-site-ktxqn0/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book Now</button>
+
+			</div>
+		</header>
+
+<!-- Cal element-click embed code begins -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "30min", {origin:"https://app.cal.com"});
+
+  
+  // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
+  // `data-cal-link="developers-clear-site-ktxqn0/30min"`
+  // data-cal-namespace="30min"
+  // `data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'`
+
+  Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+  <!-- Cal element-click embed code ends -->
+
+		<main>
+			<section class="hero">
+				<div class="container hero-grid hero-centered">
+					<div class="hero-frame">
+						<img
+							class="hero-banner"
+							src="assets/IMG4444.png"
+							alt="Every Hour Heating and Air banner"
+						/>
+					</div>
+					<div>
+						<h1>Reliable HVAC, duct, and carpet cleaning—on your schedule.</h1>
+						<p>
+							Serving homes with expert H.V.A.C installs, H.V.A.C service, air duct
+							cleaning, and carpet cleaning. Fast response, honest pricing, and
+							quality work you can trust.
+						</p>
+						<div class="hero-actions">
+							<a class="btn btn-accent" href="#contact">Book Now</a>
+							<a class="btn btn-primary" href="tel:801-687-8730">Call 801-687-8730</a>
+						</div>
+						<div class="badges">
+							<span>25+ Years Experience</span>
+							<span>Local &amp; Trusted</span>
+							<span>Residential &amp; Commercial</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="services">
+				<div class="container">
+					<div class="section-title center">
+						<h2>Services</h2>
+						<p>Focused solutions that keep your home efficient, safe, and clean.</p>
+					</div>
+					<div class="grid grid-2">
+						<article class="card">
+							<img src="assets/HVAC INstall.png" alt="HVAC installation" />
+							<h3>H.V.A.C Install</h3>
+							<p>Professional installs for reliable comfort and long-term performance.</p>
+						</article>
+						<article class="card">
+							<img src="assets/IMG3333.webp" alt="HVAC service" />
+							<h3>H.V.A.C Service</h3>
+							<p>Diagnostics and repairs to restore airflow, efficiency, and safety.</p>
+						</article>
+						<article class="card">
+							<img src="assets/IMG_8768.JPG" alt="Clean air duct" />
+							<h3>Air Duct Cleaning</h3>
+							<p>Improve indoor air quality and system performance with a full clean.</p>
+						</article>
+						<article class="card">
+							<img src="assets/IMG2222.jpg" alt="Carpet cleaning" />
+							<h3>Carpet Cleaning</h3>
+							<p>Fresh, clean carpets that look great and feel comfortable.</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="container">
+					<div class="cta-banner grid grid-2">
+						<div>
+							<h2>24/7 HVAC &amp; Cleaning Support</h2>
+							<p>
+								Fast response when you need it. Call or book online and we’ll take
+								care of the rest.
+							</p>
+							<p>
+								We deliver dependable solutions for heating, cooling, ductwork, and
+								cleaning services. Our team focuses on cleanliness, safety, and
+								long-term performance so your home stays comfortable year-round.
+							</p>
+							<p>
+								We’re local, responsive, and we stand behind every job we do.
+							</p>
+							<a class="btn btn-accent" href="#contact">Book Now</a>
+						</div>
+						<div>
+							<img src="assets/IMG_9539_9114.JPG" alt="Technician by truck" />
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="pricing">
+				<div class="container">
+					<div class="section-title center">
+						<h2>Pricing</h2>
+						<p>Clear, simple pricing for the services you need most.</p>
+					</div>
+					<div class="pricing-grid">
+						<div class="pricing">
+							<span class="label">Carpet Cleaning</span>
+							<h3>Deep Clean</h3>
+							<p class="price">$35</p>
+							<ul>
+								<li>Per room</li>
+								<li>Freshens &amp; lifts stains</li>
+								<li>Great for high-traffic areas</li>
+							</ul>
+						</div>
+						<div class="pricing pricing-highlight">
+							<span class="badge">Most Popular</span>
+							<span class="label">Air Duct Cleaning</span>
+							<h3>Whole Home Special</h3>
+							<p class="price">$350</p>
+							<ul>
+								<li>Complete system clean</li>
+								<li>Improves indoor air quality</li>
+								<li>Whole house special</li>
+							</ul>
+						</div>
+						<div class="pricing">
+							<span class="label">Dryer Vent Cleaning</span>
+							<h3>Safety Service</h3>
+							<p class="price">$125</p>
+							<ul>
+								<li>Per visit</li>
+								<li>Reduces fire risk</li>
+								<li>Boosts dryer efficiency</li>
+							</ul>
+						</div>
+						<div class="pricing">
+							<span class="label">Service Calls</span>
+							<h3>HVAC Diagnostics</h3>
+							<p class="price">$75</p>
+							<ul>
+								<li>Per service call</li>
+								<li>Expert troubleshooting</li>
+								<li>Clear recommendations</li>
+							</ul>
+						</div>
+						<div class="pricing">
+							<span class="label">Cleaning Membership</span>
+							<h3>Priority Plan</h3>
+							<p class="price">Starting at $25/mo</p>
+							<ul>
+								<li>Priority scheduling</li>
+								<li>Maintenance reminders</li>
+								<li>Consistent cleanings</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="contact">
+				<div class="container">
+					<div class="contact">
+						<h2>Contact Us</h2>
+						<p>We’re ready to help. Reach out today.</p>
+						<p>
+							Phone: <a href="tel:801-687-8730">801-687-8730</a><br />
+							Email:
+							<a href="mailto:everyhourheatingandair@gmail.com"
+								>everyhourheatingandair@gmail.com</a
+							>
+						</p>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="container">© 2026 Every Hour Heating and Air. All rights reserved.</div>
+		</footer>
+	</body>
+</html>
