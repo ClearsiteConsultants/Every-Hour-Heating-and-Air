@@ -28,16 +28,14 @@ const bookingServices = [
   "H.V.A.C Install",
   "H.V.A.C Service",
   "Air Duct Cleaning",
-  "Carpet Cleaning",
-  "Cleaning Membership"
+  "Carpet Cleaning"
 ];
 
 const bookingLinks: Record<string, string> = {
   "H.V.A.C Install": "https://app.cal.com/developers-clear-site-ktxqn0/30min",
   "H.V.A.C Service": "https://app.cal.com/developers-clear-site-ktxqn0/30min",
   "Air Duct Cleaning": "https://app.cal.com/developers-clear-site-ktxqn0/30min",
-  "Carpet Cleaning": "https://app.cal.com/developers-clear-site-ktxqn0/30min",
-  "Cleaning Membership": "https://app.cal.com/developers-clear-site-ktxqn0/30min"
+  "Carpet Cleaning": "https://app.cal.com/developers-clear-site-ktxqn0/30min"
 };
 
 const pricing = [
