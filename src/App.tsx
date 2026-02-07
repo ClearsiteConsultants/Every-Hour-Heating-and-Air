@@ -33,10 +33,10 @@ const bookingServices = [
 ];
 
 const bookingLinks: Record<string, string> = {
-  "H.V.A.C Install": "https://app.cal.com/developers-clear-site-ktxqn0/30min",
-  "H.V.A.C Service": "https://app.cal.com/developers-clear-site-ktxqn0/30min",
-  "Air Duct Cleaning": "https://app.cal.com/developers-clear-site-ktxqn0/30min",
-  "Carpet Cleaning": "https://app.cal.com/developers-clear-site-ktxqn0/30min"
+  "H.V.A.C Install": "https://app.cal.com/brad-bosshardt-hhlktw/h.v.a.c-install",
+  "H.V.A.C Service": "https://app.cal.com/brad-bosshardt-hhlktw/15min",
+  "Air Duct Cleaning": "https://app.cal.com/brad-bosshardt-hhlktw/30min",
+  "Carpet Cleaning": "https://app.cal.com/brad-bosshardt-hhlktw/carpet-cleaning",
 };
 
 const pricing = [
