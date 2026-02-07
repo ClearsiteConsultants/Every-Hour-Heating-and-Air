@@ -44,7 +44,11 @@ const pricing = [
     label: "Carpet Cleaning",
     title: "Deep Clean",
     price: "$35",
-    items: ["Per room", "Freshens & lifts stains", "Great for high-traffic areas"]
+    items: [
+      "Per room up to 300 sq ft",
+      "Freshens & lifts stains",
+      "Great for high-traffic areas"
+    ]
   },
   {
     label: "Air Duct Cleaning",
@@ -133,7 +137,7 @@ export default function App() {
           <div className="mx-auto grid min-h-[680px] w-[min(1200px,92vw)] items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="mx-auto flex h-[440px] w-[440px] items-center justify-center rounded-3xl bg-slate-50 p-6 shadow-sm sm:h-[500px] sm:w-[500px] md:h-[560px] md:w-[560px]">
               <img
-                src="/IMG6666.png"
+                src="/IMG8888.png"
                 alt="Every Hour Heating and Air banner"
                 className="h-full w-full rounded-full object-contain shadow-sm"
               />
@@ -252,7 +256,7 @@ export default function App() {
                       Most Popular
                     </span>
                   )}
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-900">
                     {item.label}
                   </p>
                   <h3 className="mt-3 text-lg font-semibold">{item.title}</h3>
