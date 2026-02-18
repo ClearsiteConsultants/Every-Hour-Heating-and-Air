@@ -81,6 +81,24 @@ const pricing = [
   }
 ];
 
+const beforeAfterPairs = [
+  {
+    id: "8757",
+    before: "/IMG_8757 before.JPG",
+    after: "/IMG_8757 after.JPG"
+  },
+  {
+    id: "8763",
+    before: "/IMG_8763 before.JPG",
+    after: "/IMG_8763 after.JPG"
+  },
+  {
+    id: "8766",
+    before: "/IMG_8766 before.JPG",
+    after: "/IMG_8766 after.JPG"
+  }
+];
+
 export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(bookingServices[0]);
@@ -137,7 +155,7 @@ export default function App() {
           <div className="mx-auto grid min-h-[680px] w-[min(1200px,92vw)] items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="mx-auto flex h-[440px] w-[440px] items-center justify-center rounded-3xl bg-slate-50 p-6 shadow-sm sm:h-[500px] sm:w-[500px] md:h-[560px] md:w-[560px]">
               <img
-                src="/IMG8888.png"
+                src="/IMG 7878 Logo.png"
                 alt="Every Hour Heating and Air banner"
                 className="h-full w-full rounded-full object-contain shadow-sm"
               />
@@ -184,7 +202,7 @@ export default function App() {
               {services.map((service) => (
                 <article
                   key={service.title}
-                  className="rounded-2xl border border-slate-200 bg-white p-7 text-center shadow-soft"
+                  className="mx-auto w-full max-w-[240px] rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft"
                 >
                   <div className="mx-auto w-full max-w-[220px]">
                     <div className="aspect-square w-full rounded-2xl border border-slate-200 bg-white p-2">
@@ -201,6 +219,40 @@ export default function App() {
                   </p>
                 </article>
               ))}
+            </div>
+            <div className="mt-12">
+              <h3 className="text-center text-2xl font-semibold">Before &amp; After</h3>
+              <p className="mt-2 text-center text-sm text-slate-600">
+                See the transformation with side-by-side results.
+              </p>
+              <div className="mt-6 grid gap-8">
+                {beforeAfterPairs.map((pair) => (
+                  <div
+                    key={pair.id}
+                    className="mx-auto w-full max-w-[860px] rounded-2xl border border-slate-200 bg-white p-4 shadow-soft"
+                  >
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      {[
+                        { label: "Before", src: pair.before },
+                        { label: "After", src: pair.after }
+                      ].map((item) => (
+                        <div key={`${pair.id}-${item.label}`} className="flex flex-col gap-2">
+                          <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+                            <img
+                              src={item.src}
+                              alt={`${item.label} ${pair.id}`}
+                              className="h-full w-full object-cover"
+                            />
+                          </div>
+                          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 text-center">
+                            {item.label}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
